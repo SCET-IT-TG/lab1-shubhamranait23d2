@@ -21,8 +21,8 @@ db.students.insertMany([
 db.students.insertOne({
   name: "David",
   department: "Computer Science",
-  semester: 4,
-  mobile: "9876543210"
+  semester: 3,
+  mobile: "1234567895"
 })
 
 /*----Exercise 3: Array of Simple Values----*/
@@ -80,3 +80,4 @@ db.students.insert({
   semester: 7,
   mobile: "9033333333"
 })
+
