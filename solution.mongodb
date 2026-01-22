@@ -1,84 +1,104 @@
-/*----Switching Database----*/
-db = db.getSiblingDB("examDB")
+/*---Switch Database---*/
 
-/*----Exercise 1: Database & Collection Creation----*/
-db.students.insertMany([
-  {
-    studentId: 1,
-    name: "Alice",
-    age: 20,
-    course: "Computer Science"
-  },
-  {
-    studentId: 2,
-    name: "Bob",
-    age: 22,
-    course: "Information Technology"
-  }
-])
+db = db.getSiblingDB("examDB");
 
-/*----Exercise 2: Insert Document with Multiple Fields----*/
+/*---Exercise 1: Database & Collection Creation---*/
+
 db.students.insertOne({
-    name: "Aryan",
+    name: "Meet Solanki",
     department: "IT",
     semester: 5,
-    mobile: "9825611222"
+    mobile: "9825611223"
 });
 
-/*----Exercise 3: Array of Simple Values----*/
+db.students.insertOne({
+    name : "Smit Sapariya", 
+    department : "EC", 
+    semester : 5, 
+    mobile: "9825611225"
+});
+
+/*---Exercise 2: Insert Document with Multiple Fields---*/
+
+db.students.insertOne({
+    name: "Deep Davra",
+    department: "IT",
+    semester: 5,
+    mobile: "9825611229"
+});
+
+
+/*---Exercise 3: Array of Simple Values---*/
+
+
 db.subjects.insertOne({
-  course_name: "Computer Science",
-  subject_list: ["Databases", "Operating Systems", "Data Structures", "Computer Networks"]
-})
+    course_name : "Information Technology", 
+    subject_list : ["CNS", "EO", "WT", "DMBI"]
+});
 
-/*----Exercise 4: Array of Objects----*/
+
+/*---Exercise 4: Array of Objects---*/
+
+
 db.faculty.insertOne({
-  department: "Computer Science",
-  teachers: [
-    { name: "Dr. Sharma", experience: 10 },
-    { name: "Prof. Mehta", experience: 7 },
-    { name: "Ms. Rao", experience: 4 }
-  ]
-})
+    department: "IT",
+    teachers: [
+        { name: "Tushar Gohil", experience: 13 },
+        { name: "Apurva Mandalaywala", experience: 25 }
+    ]
+});
 
-/*----Exercise 5: Explicit Primary Key----*/
+
+/*---Exercise 5: Explicit Primary Key---*/
+
+
 db.students.insertOne({
-  _id: ObjectId(),
-  name: "Emma",
-  department: "Information Technology",
-  semester: 5,
-  mobile: "9123456780"
-})
+    _id: ObjectId(),
+    name: "Salman Khan",
+    department: "IT",
+    semester: 5,
+    mobile: "7016851444"
+});
 
-/*----Exercise 6: Duplicate Primary Key Observation----*/
+
+/*---Exercise 6: Duplicate Primary Key Observation---*/
+
+
 db.students.insertOne({
-  _id: 1001,
-  name: "Rahul",
-  department: "Computer Science",
-  semester: 6,
-  mobile: "9000011111"
-})
+    _id: ObjectId("695fb634f76965e1281e2617"),
+    name: "Sohail Khan",
+    department: "IT",
+    semester: 5,
+    mobile: "7016803095"
+});
 
-/*----Exercise 7: Multiple Inserts Using insert()----*/
-db.students.insert({
-  name: "Kiran",
-  department: "Mechanical",
-  semester: 3,
-  mobile: "9011111111"
-})
+db.students.insertOne({
+    _id: ObjectId("695fb634f76965e1281e2617"),
+    name: "Yash Vyas",
+    department: "IT",
+    semester: 5,
+    mobile: "7016803096"
+});
 
-db.students.insert({
-  name: "Neha",
-  department: "Civil",
-  semester: 5,
-  mobile: "9022222222"
-})
+/*Error Msg:- MongoServerError: E11000 duplicate key error collection: examDB.students index: _id_ dup key: { _id: ObjectId('695fb634f76965e1281e2617') }*/
 
-db.students.insert({
-  name: "Arjun",
-  department: "Electrical",
-  semester: 7,
-  mobile: "9033333333"
-})
+
+/*---Exercise 7: Multiple Inserts Using insert()---*/
+
+
+db.students.insertOne({ 
+    name: "farhan", 
+    enroll: 101 
+});
+
+db.students.insertOne({ 
+    name: "Raju", 
+    enroll: 102 
+});
+
+db.students.insertOne({ 
+    name: "Rajat", 
+    enroll: 103 
+});
 
 
