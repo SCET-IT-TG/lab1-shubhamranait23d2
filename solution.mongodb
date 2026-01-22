@@ -1,0 +1,82 @@
+/*----Switching Database----*/
+db = db.getSiblingDB("examDB")
+
+/*----Exercise 1: Database & Collection Creation----*/
+db.students.insertMany([
+  {
+    studentId: 1,
+    name: "Alice",
+    age: 20,
+    course: "Computer Science"
+  },
+  {
+    studentId: 2,
+    name: "Bob",
+    age: 22,
+    course: "Information Technology"
+  }
+])
+
+/*----Exercise 2: Insert Document with Multiple Fields----*/
+db.students.insertOne({
+  name: "David",
+  department: "Computer Science",
+  semester: 4,
+  mobile: "9876543210"
+})
+
+/*----Exercise 3: Array of Simple Values----*/
+db.subjects.insertOne({
+  course_name: "Computer Science",
+  subject_list: ["Databases", "Operating Systems", "Data Structures", "Computer Networks"]
+})
+
+/*----Exercise 4: Array of Objects----*/
+db.faculty.insertOne({
+  department: "Computer Science",
+  teachers: [
+    { name: "Dr. Sharma", experience: 10 },
+    { name: "Prof. Mehta", experience: 7 },
+    { name: "Ms. Rao", experience: 4 }
+  ]
+})
+
+/*----Exercise 5: Explicit Primary Key----*/
+db.students.insertOne({
+  _id: ObjectId(),
+  name: "Emma",
+  department: "Information Technology",
+  semester: 5,
+  mobile: "9123456780"
+})
+
+/*----Exercise 6: Duplicate Primary Key Observation----*/
+db.students.insertOne({
+  _id: 1001,
+  name: "Rahul",
+  department: "Computer Science",
+  semester: 6,
+  mobile: "9000011111"
+})
+
+/*----Exercise 7: Multiple Inserts Using insert()----*/
+db.students.insert({
+  name: "Kiran",
+  department: "Mechanical",
+  semester: 3,
+  mobile: "9011111111"
+})
+
+db.students.insert({
+  name: "Neha",
+  department: "Civil",
+  semester: 5,
+  mobile: "9022222222"
+})
+
+db.students.insert({
+  name: "Arjun",
+  department: "Electrical",
+  semester: 7,
+  mobile: "9033333333"
+})
